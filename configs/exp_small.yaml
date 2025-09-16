@@ -1,0 +1,59 @@
+paths:
+  root: .
+  raw_comments: "comments/RC_2024-12_comments.json"
+  raw_submissions: "submissions/RS_2024-12_submission.json"
+  mini_dir: "mini_dataset"
+  artifacts_dir: "artifacts"
+  figures_dir: "figures"
+
+filters:
+  subreddits: ["politics", "worldnews", "AskReddit"]
+  # 一周窗口
+  start_utc: "2024-12-01T00:00:00Z"
+  end_utc:   "2024-12-07T23:59:59Z"
+
+slice:
+  chunksize: 1000000
+  sub_shard_rows: 500000
+  com_shard_rows: 1000000
+  max_submissions: 10000
+  max_comments: 200000
+  comment_sample_frac: 1.0  # 0~1
+
+read:
+  max_submissions_files: 2
+  max_comments_files: 3
+
+corpus:
+  text_fields_submission: ["title", "selftext"]
+  text_field_comment: "body"
+  min_doc_len: 10
+  lowercase: true
+  strip_urls: true
+  strip_markdown: true
+  strip_code: true
+
+split:
+  strategy: "time"
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+baseline:
+  vectorizer: "tfidf"
+  max_features: 50000
+  ngram_range: [1, 2]
+  clf: "logreg"
+  C: 1.0
+  class_weight: "balanced"
+
+graph:
+  node_type: "user"
+  min_degree: 2
+  max_nodes: 20000
+
+plots:
+  dpi: 180
+  style: "default"
+
+random_state: 42

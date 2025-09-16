@@ -56,4 +56,12 @@ plots:
   dpi: 180
   style: "default"
 
+# Data Preparation specific configurations
+
+data_prep:
+  min_posts_per_subreddit: 10   # 最少帖子数
+  target_dataset_size: 1000     # 目标数据集大小
+  time_window_hours: 12         # 处理前12小时数据
+  max_samples_per_file: 2000    # 每个文件最多处理2000条
+
 random_state: 42

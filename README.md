@@ -13,236 +13,254 @@ This project provides a complete end-to-end pipeline for analyzing Reddit data, 
 - **Visualization**: Comprehensive charts and plots for analysis
 - **One-Click Execution**: Automated batch scripts for easy deployment
 
-## 数据来源
+## Data Source
 
-- **数据源**: Academic Torrents Reddit 2024-12
-- **时间范围**: 2024年12月1日-7日（一周数据）
-- **目标子版块**: politics, worldnews, AskReddit
-- **文件格式**: JSON Lines (.json)
+- **Data Source**: Academic Torrents Reddit 2024-12
+- **Time Range**: December 1-7, 2024 (one week of data)
+- **Target Subreddits**: politics, worldnews, AskReddit
+- **File Format**: JSON Lines (.json)
 
-## 环境要求
+## Environment Requirements
 
-### 推荐环境
-- **Python**: 3.10+ (推荐使用conda环境)
-- **内存**: 16GB+ RAM
-- **存储**: SSD推荐
+### Recommended Environment
+- **Python**: 3.10+ (recommended to use conda environment)
+- **Memory**: 16GB+ RAM
+- **Storage**: SSD recommended
 
-### 依赖安装
+### Dependency Installation
 
 ```bash
-# 基础依赖
+# Basic dependencies
 pip install -U pip wheel setuptools
 
-# 核心依赖
-pip install "pyarrow>=17" "fastparquet>=2024.5" pandas tqdm scikit-learn matplotlib networkx joblib pydantic ruamel.yaml
+# Core dependencies
+pip install "pyarrow>=17" "fastparquet>=2024.5" pandas tqdm scikit-learn matplotlib networkx joblib pydantic ruamel.yaml seaborn
 ```
 
-### Conda环境（推荐）
+### Conda Environment (Recommended)
 
 ```bash
 conda create -n at310 python=3.10 -y
 conda activate at310
-pip install "pyarrow>=17" "fastparquet>=2024.5" pandas tqdm scikit-learn matplotlib networkx joblib pydantic ruamel.yaml
+pip install "pyarrow>=17" "fastparquet>=2024.5" pandas tqdm scikit-learn matplotlib networkx joblib pydantic ruamel.yaml seaborn
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 project_root/
-├── configs/                 # 配置文件
-│   ├── exp_small.yaml      # 小样本配置
-│   └── exp_full.yaml       # 全量配置
-├── scripts/                 # 分析脚本
-│   ├── 00_env_check.py     # 环境检查
-│   ├── 01_slice_dataset.py # 数据切片
-│   ├── 02_verify_parquet.py# 数据验证
-│   ├── 03_prepare_corpus.py# 语料准备
-│   ├── 04_baseline_tfidf_lr.py # 基线模型
-│   ├── 05_build_graph.py   # 图构建
-│   ├── 06_visualize_diffusion.py # 扩散可视化
-│   └── 07_eval_report.py   # 评估报告
-├── artifacts/              # 中间产物
-├── figures/                # 图表输出
-├── mini_dataset/           # 切片数据
-├── run_small.bat          # 小样本一键运行
-├── run_full.bat           # 全量一键运行
-└── README.md              # 本文档
+├── configs/                 # Configuration files
+│   ├── exp_small.yaml      # Small sample configuration
+│   └── exp_full.yaml       # Full dataset configuration
+├── scripts/                 # Analysis scripts
+│   ├── 00_env_check.py     # Environment check
+│   ├── 01_slice_dataset.py # Data slicing
+│   ├── 02_verify_parquet.py# Data verification
+│   ├── 03_prepare_corpus.py# Corpus preparation
+│   ├── 04_baseline_tfidf_lr.py # Baseline model
+│   ├── 05_build_graph.py   # Graph construction
+│   ├── 06_visualize_diffusion.py # Diffusion visualization
+│   └── 07_eval_report.py   # Evaluation report
+├── artifacts/              # Intermediate outputs
+├── figures/                # Chart outputs
+├── mini_dataset/           # Sliced data
+├── run_small.bat          # Small sample one-click run
+├── run_full.bat           # Full dataset one-click run
+└── README.md              # This document
 ```
 
-## 快速开始
+## Quick Start
 
-### 小样本模式（推荐首次运行）
+### Small Sample Mode (Recommended for first run)
 
 ```bash
 # Windows
 run_small.bat
 
-# 或手动运行
+# Or run manually
 python scripts/00_env_check.py --config configs/exp_small.yaml
 python scripts/01_slice_dataset.py --config configs/exp_small.yaml
-# ... 其他脚本
+# ... other scripts
 ```
 
-**预期时间**: 30-60分钟  
-**数据量**: 10K submissions, 200K comments
+**Expected Time**: 30-60 minutes  
+**Data Volume**: 10K submissions, 200K comments
 
-### 全量模式
+### Full Dataset Mode
 
 ```bash
 # Windows
 run_full.bat
 
-# 或手动运行
+# Or run manually
 python scripts/00_env_check.py --config configs/exp_full.yaml
 python scripts/01_slice_dataset.py --config configs/exp_full.yaml
-# ... 其他脚本
+# ... other scripts
 ```
 
-**预期时间**: 数小时  
-**数据量**: 一周全量数据
+**Expected Time**: Several hours  
+**Data Volume**: Full week dataset
 
-## 分析流程
+## Analysis Pipeline
 
-### 1. 环境检查 (`00_env_check.py`)
-- 检查Python版本和依赖包
-- 自动安装缺失的包
-- 验证parquet引擎可用性
+### 1. Environment Check (`00_env_check.py`)
+- Check Python version and required packages
+- Automatically install missing packages
+- Verify parquet engine availability
 
-### 2. 数据切片 (`01_slice_dataset.py`)
-- 按子版块和时间过滤原始JSON数据
-- 分片写入Parquet格式
-- 生成submissions和comments的切片文件
+### 2. Data Slicing (`01_slice_dataset.py`)
+- Filter raw JSON data by subreddit and time
+- Write sliced data to Parquet format
+- Generate sliced files for submissions and comments
 
-### 3. 数据验证 (`02_verify_parquet.py`)
-- 验证切片数据完整性
-- 生成数据统计摘要
-- 创建数据分布图表
+### 3. Data Verification (`02_verify_parquet.py`)
+- Verify sliced data integrity
+- Generate data statistics summary
+- Create data distribution charts
 
-### 4. 语料准备 (`03_prepare_corpus.py`)
-- 构建弱标注文本语料
-- 文本清洗和预处理
-- 基于关键词的代理标签生成
+### 4. Corpus Preparation (`03_prepare_corpus.py`)
+- Build weakly-labeled text corpus
+- Text cleaning and preprocessing
+- Proxy label generation based on keywords
 
-### 5. 基线模型 (`04_baseline_tfidf_lr.py`)
-- TF-IDF特征提取
-- 逻辑回归分类器
-- 时间序列数据切分
-- 性能评估和可视化
+### 5. Baseline Model (`04_baseline_tfidf_lr.py`)
+- TF-IDF feature extraction
+- Logistic regression classifier
+- Time-series data splitting
+- Performance evaluation and visualization
 
-### 6. 图构建 (`05_build_graph.py`)
-- 用户交互图构建
-- 回复关系和共评论关系
-- 图统计分析和度分布
+### 6. Graph Construction (`05_build_graph.py`)
+- User interaction graph construction
+- Reply relationships and co-comment relationships
+- Graph statistics analysis and degree distribution
 
-### 7. 扩散可视化 (`06_visualize_diffusion.py`)
-- 热门讨论线程分析
-- 层级树和力导向图
-- 讨论深度和时间跨度分析
+### 7. Diffusion Visualization (`06_visualize_diffusion.py`)
+- Hot discussion thread analysis
+- Hierarchical trees and force-directed graphs
+- Discussion depth and time span analysis
 
-### 8. 评估报告 (`07_eval_report.py`)
-- 汇总所有分析结果
-- 生成PPT要点
-- 创建数据表格
+### 8. Evaluation Report (`07_eval_report.py`)
+- Summarize all analysis results
+- Generate PPT bullet points
+- Create data tables
 
-## 输出文件
+## Output Files
 
-### artifacts/ 目录
-- `summary.json` - 数据统计摘要
-- `corpus.parquet` - 文本语料
-- `baseline_metrics.json` - 基线模型指标
-- `baseline_model.joblib` - 训练好的模型
-- `graph_user.gpickle` - 用户交互图
-- `graph_stats.json` - 图统计信息
-- `thread_*_stats.json` - 热门线程统计
-- `table_numbers.csv` - 汇总数据表
-- `slide_bullets.md` - PPT要点
+### artifacts/ Directory
+- `summary.json` - Data statistics summary
+- `corpus.parquet` - Text corpus
+- `baseline_metrics.json` - Baseline model metrics
+- `baseline_model.joblib` - Trained model
+- `graph_user.gpickle` - User interaction graph
+- `graph_stats.json` - Graph statistics
+- `thread_*_stats.json` - Hot thread statistics
+- `table_numbers.csv` - Summary data table
+- `slide_bullets.md` - PPT bullet points
 
-### figures/ 目录
-- `subreddit_bar.png` - 子版块分布
-- `timestamp_hist.png` - 时间戳分布
-- `label_balance.png` - 标签平衡
-- `confusion_matrix.png` - 混淆矩阵
-- `pr_curve.png` - 精确率-召回率曲线
-- `feature_top_terms.png` - 特征重要性
-- `degree_hist.png` - 度分布
-- `thread_tree_*.png` - 讨论树
-- `thread_force_*.png` - 力导向图
+### figures/ Directory
+- `subreddit_bar.png` - Subreddit distribution
+- `timestamp_hist.png` - Timestamp distribution
+- `label_balance.png` - Label balance
+- `confusion_matrix.png` - Confusion matrix
+- `pr_curve.png` - Precision-recall curve
+- `feature_top_terms.png` - Feature importance
+- `degree_hist.png` - Degree distribution
+- `thread_tree_*.png` - Discussion trees
+- `thread_force_*.png` - Force-directed graphs
 
-## 配置说明
+## Configuration
 
-### 小样本配置 (exp_small.yaml)
-- 限制数据量便于快速测试
-- 适合开发和调试
-- 内存需求较低
+### Small Sample Configuration (exp_small.yaml)
+- Limited data volume for quick testing
+- Suitable for development and debugging
+- Lower memory requirements
 
-### 全量配置 (exp_full.yaml)
-- 处理完整一周数据
-- 适合生产分析
-- 需要更多计算资源
+### Full Dataset Configuration (exp_full.yaml)
+- Process complete week dataset
+- Suitable for production analysis
+- Requires more computational resources
 
-## 重要说明
+## Important Notes
 
-### 弱标注标签
-当前使用的文本标签为**代理标签/弱标注**，基于简单关键词匹配生成，仅用于演示流程。正式分析需要：
-- 人工标注数据
-- 公开标注数据集
-- 更复杂的标签生成方法
+### Weak Labeling
+The current text labels are **proxy labels/weak labels** generated based on simple keyword matching, used only for demonstration purposes. For formal analysis, it is recommended to:
+- Use human-annotated real data
+- Use public annotation datasets
+- Implement more complex labeling methods
 
-### 数据隐私
-- 仅处理公开可用的Reddit数据
-- 遵循Academic Torrents使用条款
-- 不存储个人敏感信息
+### Data Privacy
+- Only processes publicly available Reddit data
+- Follows Academic Torrents usage terms
+- Does not store personal sensitive information
 
-### 性能优化
-- 使用Parquet格式提高I/O效率
-- 分片处理避免内存溢出
-- 可配置的数据量限制
+### Performance Optimization
+- Uses Parquet format for improved I/O efficiency
+- Chunked processing to avoid memory overflow
+- Configurable data volume limits
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **内存不足**
-   - 使用小样本模式
-   - 减少chunksize参数
-   - 增加虚拟内存
+1. **Insufficient Memory**
+   - Use small sample mode
+   - Reduce chunksize parameter
+   - Increase virtual memory
 
-2. **Parquet引擎错误**
-   - 运行环境检查脚本
-   - 重新安装pyarrow/fastparquet
-   - 检查Python版本兼容性
+2. **Parquet Engine Errors**
+   - Run environment check script
+   - Reinstall pyarrow/fastparquet
+   - Check Python version compatibility
 
-3. **数据文件缺失**
-   - 确认原始JSON文件路径正确
-   - 检查文件名格式
-   - 验证文件权限
+3. **Missing Data Files**
+   - Confirm original JSON file paths are correct
+   - Check file name format
+   - Verify file permissions
 
-### 日志和调试
-- 所有脚本都有详细的控制台输出
-- 错误信息会显示具体失败步骤
-- 可以单独运行每个脚本进行调试
+### Logging and Debugging
+- All scripts have detailed console output
+- Error messages show specific failure steps
+- Can run each script individually for debugging
 
-## 扩展和定制
+## Extension and Customization
 
-### 添加新的分析模块
-1. 在`scripts/`目录创建新脚本
-2. 更新配置文件添加新参数
-3. 修改批处理文件包含新步骤
+### Adding New Analysis Modules
+1. Create new script in `scripts/` directory
+2. Update configuration files to add new parameters
+3. Modify batch files to include new steps
 
-### 修改数据源
-1. 更新配置文件中的文件路径
-2. 调整数据过滤条件
-3. 修改字段映射逻辑
+### Modifying Data Sources
+1. Update file paths in configuration files
+2. Adjust data filtering conditions
+3. Modify field mapping logic
 
-### 自定义可视化
-1. 修改matplotlib样式配置
-2. 添加新的图表类型
-3. 调整图表尺寸和DPI
+### Custom Visualization
+1. Modify matplotlib style configuration
+2. Add new chart types
+3. Adjust chart size and DPI
 
-## 许可证
+## Results Summary
 
-本项目基于Academic Torrents Reddit数据，遵循相应的使用条款。
+### Data Processing Results
+- **Processed**: 4,869 Reddit submissions
+- **Extracted**: 200,000 related comments
+- **Corpus**: 185,776 documents with weak labels
 
-## 联系方式
+### Model Performance
+- **Accuracy**: 92.0%
+- **F1-Score**: 86.0% (macro), 92.5% (weighted)
+- **AUC**: 96.6%
 
-如有问题或建议，请通过项目仓库提交Issue。
+### Network Analysis
+- **Users**: 20,000 nodes (filtered from 64,688)
+- **Interactions**: 266,467 edges
+- **Components**: 29 connected components
+- **Average Degree**: 26.65
+
+## License
+
+This project is based on Academic Torrents Reddit data and follows the corresponding usage terms.
+
+## Contact
+
+For questions or suggestions, please submit an Issue through the project repository.

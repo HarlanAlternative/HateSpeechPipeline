@@ -44,13 +44,10 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Data files (large files)
-*.json
+# Data files (large files) - but allow artifacts
 *.zst
-*.parquet
 *.pickle
 *.pkl
-*.joblib
 
 # Keep structure but ignore large data
 comments/*.json
@@ -58,10 +55,12 @@ comments/*.zst
 submissions/*.json
 submissions/*.zst
 mini_dataset/*.parquet
-artifacts/*.parquet
-artifacts/*.joblib
-artifacts/*.pickle
-artifacts/*.gpickle
+
+# Allow all artifacts files for research reproducibility
+# artifacts/*.parquet
+# artifacts/*.joblib
+# artifacts/*.pickle
+# artifacts/*.gpickle
 
 # Logs
 *.log

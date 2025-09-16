@@ -1,0 +1,7 @@
+{
+  "model_type": "TGAT",
+  "input_dim": 776,
+  "hidden_dim": 128,
+  "num_layers": 2,
+  "num_classes": 2
+}

@@ -1,0 +1,22 @@
+{
+  "key_findings": [
+    "Diffusion Hit@1: 0.550",
+    "Diffusion MRR: 0.881",
+    "Best moderation strategy: content_removal"
+  ],
+  "performance_metrics": {
+    "tgnn": {
+      "accuracy": 0.75,
+      "precision": 0.8,
+      "recall": 0.7272727272727273,
+      "f1": 0.7619047619047619,
+      "auc": 0.8787878787878788
+    }
+  },
+  "recommendations": [
+    "Continue developing TGNN approaches for temporal hate speech analysis",
+    "Implement best-performing moderation strategy in practice",
+    "Expand dataset with more diverse subreddits and time periods",
+    "Investigate user-level interventions for hate speech reduction"
+  ]
+}

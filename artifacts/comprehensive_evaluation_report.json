@@ -1,0 +1,111 @@
+{
+  "evaluation_summary": {
+    "timestamp": "2025-09-16T23:49:27.580571",
+    "components_evaluated": 4,
+    "visualizations_created": true
+  },
+  "classification_performance": {
+    "metrics": {
+      "tgnn": {
+        "accuracy": 0.75,
+        "precision": 0.8,
+        "recall": 0.7272727272727273,
+        "f1": 0.7619047619047619,
+        "auc": 0.8787878787878788
+      }
+    },
+    "comparison": {}
+  },
+  "diffusion_prediction": {
+    "metrics": {
+      "hit_at_1": 0.55,
+      "hit_at_5": 0.0,
+      "hit_at_10": 0.0,
+      "hit_at_20": 0.0,
+      "mrr": 0.8809523809523808,
+      "jaccard": 0.6166666666666666,
+      "num_scenarios": 20
+    },
+    "patterns": {
+      "high_diffusion_users": 20,
+      "low_diffusion_users": 0,
+      "network_effects": 3
+    }
+  },
+  "moderation_effectiveness": {
+    "best_strategy": "content_removal",
+    "best_score": 9.2284718765555,
+    "strategy_analysis": {
+      "content_removal": {
+        "hate_reduction": 0.10204081632653061,
+        "effectiveness_score": 9.2284718765555,
+        "nodes_removed": 10,
+        "remaining_samples": 98
+      },
+      "user_banning": {
+        "hate_reduction": 0.0,
+        "effectiveness_score": 0,
+        "nodes_removed": 0,
+        "remaining_samples": 108
+      },
+      "subreddit_banning": {
+        "hate_reduction": 0.0,
+        "effectiveness_score": 0,
+        "nodes_removed": 0,
+        "remaining_samples": 108
+      },
+      "combined_intervention": {
+        "hate_reduction": 0.038461538461538436,
+        "effectiveness_score": 3.455909943714819,
+        "nodes_removed": 0,
+        "remaining_samples": 104
+      }
+    },
+    "effectiveness_scores": {
+      "content_removal": 9.2284718765555,
+      "user_banning": 0,
+      "subreddit_banning": 0,
+      "combined_intervention": 3.455909943714819
+    }
+  },
+  "dataset_characteristics": {
+    "subreddit_analysis": {
+      "hate_subreddits_count": 2,
+      "normal_subreddits_count": 2,
+      "avg_hate_ratio": 0.013270876146316016,
+      "avg_normal_ratio": 0.013270876146316016
+    },
+    "dataset_stats": {
+      "total_samples": 108,
+      "hate_samples": 54,
+      "offensive_samples": 0,
+      "normal_samples": 54,
+      "unique_users": 97,
+      "unique_subreddits": 2,
+      "avg_text_length": 322.7962962962963
+    },
+    "balance_analysis": {
+      "hate_ratio": 0.5,
+      "is_balanced": true,
+      "balance_score": 1.0
+    }
+  },
+  "research_insights": {
+    "classification_insights": [],
+    "diffusion_insights": [
+      "High Hit@1 score (0.550) indicates strong predictive capability for immediate diffusion",
+      "MRR of 0.881 suggests good ranking quality for diffusion prediction"
+    ],
+    "moderation_insights": [
+      "Most effective moderation strategy: content_removal (effectiveness score: 9.2)"
+    ],
+    "dataset_insights": [
+      "Dataset is well-balanced for hate speech classification"
+    ],
+    "methodological_insights": [
+      "Davidson lexicon provides effective weak supervision for hate speech labeling",
+      "Temporal graph structure captures important user interaction patterns",
+      "Multi-task learning approach enables comprehensive hate speech analysis"
+    ]
+  }
+}

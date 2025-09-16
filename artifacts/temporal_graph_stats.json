@@ -1,0 +1,10 @@
+{
+  "num_nodes": 205,
+  "num_edges": 248,
+  "num_users": 97,
+  "num_posts": 108,
+  "feature_dim": 776,
+  "edge_feature_dim": 3,
+  "time_span": 591488.0,
+  "avg_degree": 1.2097560975609756
+}

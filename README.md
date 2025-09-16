@@ -2,7 +2,7 @@
 
 A comprehensive data analysis pipeline for Reddit data, featuring data preprocessing, text classification, network analysis, and visualization.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project provides a complete end-to-end pipeline for analyzing Reddit data, from raw JSON files to publication-ready results. It includes sentiment analysis, user interaction modeling, and information diffusion visualization.
 

@@ -19,8 +19,8 @@ This system addresses the critical challenge of understanding how hate speech sp
 
 ```
 Data Input → Preprocessing → Feature Extraction → Graph Construction → Model Training → Diffusion Prediction → Moderation Simulation → Results
-     ↓            ↓              ↓                ↓                ↓                ↓                    ↓              ↓
-Reddit Data   Davidson      BERT Embeddings   Temporal Graph   TGNN Model    Hit@k Evaluation   Strategy Testing   Visualizations
+     ↓            ↓              ↓                   ↓                    ↓                ↓                     ↓                      ↓
+Reddit Data   Davidson      BERT Embeddings      Temporal Graph      TGNN Model    Hit@k Evaluation        Strategy Testing        Visualizations
               Labeling
 ```
 
@@ -46,8 +46,7 @@ pip install pyyaml tqdm
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd reddit
+git clone https://github.com/HarlanAlternative/HateSpeechPipeline.git
 ```
 
 ### 2. Run the Complete Pipeline
@@ -250,47 +249,9 @@ The system generates various output files in the `artifacts/` and `figures/` dir
 - Use smaller batch sizes for memory-constrained environments
 - Consider data sampling for large datasets
 
-## Troubleshooting
 
-### Common Issues
 
-1. **CUDA Out of Memory**
-   - Reduce batch size in configuration
-   - Use smaller model variants
-   - Enable gradient checkpointing
 
-2. **Slow Training**
-   - Ensure GPU acceleration is enabled
-   - Check CUDA installation
-   - Optimize data loading with multiple workers
-
-3. **Missing Dependencies**
-   - Install all required packages
-   - Check Python version compatibility
-   - Verify CUDA version compatibility
-
-## Contributing
-
-We welcome contributions to improve the system. Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## Citation
-
-If you use this work in your research, please cite:
-
-```bibtex
-@article{reddit_hate_speech_2024,
-  title={Temporal Graph Neural Networks for Hate Speech Diffusion Prediction on Reddit},
-  author={Research Team},
-  journal={arXiv preprint},
-  year={2024}
-}
-```
 
 
 

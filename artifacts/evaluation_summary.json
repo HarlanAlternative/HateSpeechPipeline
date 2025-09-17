@@ -1,16 +1,16 @@
 {
   "key_findings": [
-    "Diffusion Hit@1: 0.550",
-    "Diffusion MRR: 0.881",
+    "Diffusion Hit@1: 0.077",
+    "Diffusion MRR: 1.000",
     "Best moderation strategy: content_removal"
   ],
   "performance_metrics": {
     "tgnn": {
-      "accuracy": 0.75,
-      "precision": 0.8,
-      "recall": 0.7272727272727273,
-      "f1": 0.7619047619047619,
-      "auc": 0.8787878787878788
+      "accuracy": 0.961002767086029,
+      "precision": 0.9428571428571428,
+      "recall": 0.9763313609467456,
+      "f1": 0.9593023255813954,
+      "auc": 0.9933042665836187
     }
   },
   "recommendations": [

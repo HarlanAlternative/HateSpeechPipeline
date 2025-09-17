@@ -1,163 +1,201 @@
 {
   "hit_at_k": {
-    "1": 0.55,
-    "5": 0.0,
-    "10": 0.0,
-    "20": 0.0
+    "1": 0.2,
+    "5": 0.56,
+    "10": 0.76,
+    "20": 0.9583333333333334
   },
-  "mrr": 0.8809523809523808,
-  "jaccard": 0.6166666666666666,
-  "num_scenarios": 20,
+  "mrr": 0.3733607503607504,
+  "jaccard": 0.1720427639783677,
+  "num_scenarios": 25,
   "patterns": {
     "high_diffusion_users": [
       {
-        "user": "TomChesterson",
-        "user_id": 1,
-        "avg_diffusion_prob": "0.9933072",
-        "num_neighbors": 1
-      },
-      {
-        "user": "Mike9386",
+        "user": "Godot_12",
         "user_id": 2,
-        "avg_diffusion_prob": "0.9932996",
-        "num_neighbors": 1
+        "avg_diffusion_prob": "0.614348",
+        "num_neighbors": 20
       },
       {
-        "user": "g_sneezuz",
-        "user_id": 7,
-        "avg_diffusion_prob": "0.99330705",
-        "num_neighbors": 1
+        "user": "SirPiffingsthwaite",
+        "user_id": 11,
+        "avg_diffusion_prob": "0.617572",
+        "num_neighbors": 21
       },
       {
-        "user": "I_am_from_Kentucky",
-        "user_id": 9,
-        "avg_diffusion_prob": "0.99328995",
-        "num_neighbors": 3
+        "user": "trainsrainsainsinsns",
+        "user_id": 16,
+        "avg_diffusion_prob": "0.620457",
+        "num_neighbors": 25
       },
       {
-        "user": "Dont_Knowtrain",
-        "user_id": 12,
-        "avg_diffusion_prob": "0.99330187",
-        "num_neighbors": 1
+        "user": "kneeltothesun",
+        "user_id": 17,
+        "avg_diffusion_prob": "0.624674",
+        "num_neighbors": 20
       },
       {
-        "user": "Whirlweird",
-        "user_id": 14,
-        "avg_diffusion_prob": "0.99330693",
-        "num_neighbors": 1
+        "user": "Guilty-Top-7",
+        "user_id": 18,
+        "avg_diffusion_prob": "0.622633",
+        "num_neighbors": 20
       },
       {
-        "user": "HowDoIEvenEnglish",
-        "user_id": 19,
-        "avg_diffusion_prob": "0.9933058",
-        "num_neighbors": 2
-      },
-      {
-        "user": "2gunswest",
+        "user": "NoProfession8024",
         "user_id": 20,
-        "avg_diffusion_prob": "0.9933067",
-        "num_neighbors": 1
+        "avg_diffusion_prob": "0.625213",
+        "num_neighbors": 26
       },
       {
-        "user": "Intelligent-Travel-1",
-        "user_id": 22,
-        "avg_diffusion_prob": "0.9933072",
-        "num_neighbors": 1
+        "user": "Luci-Noir",
+        "user_id": 25,
+        "avg_diffusion_prob": "0.628813",
+        "num_neighbors": 20
       },
       {
-        "user": "ssshield",
-        "user_id": 23,
-        "avg_diffusion_prob": "0.9933066",
-        "num_neighbors": 1
-      },
-      {
-        "user": "whichwitch9",
-        "user_id": 24,
-        "avg_diffusion_prob": "0.99330586",
-        "num_neighbors": 2
-      },
-      {
-        "user": "CycloneUS",
-        "user_id": 26,
-        "avg_diffusion_prob": "0.99330646",
-        "num_neighbors": 1
-      },
-      {
-        "user": "judgejuddhirsch",
+        "user": "StupudTATO",
         "user_id": 27,
-        "avg_diffusion_prob": "0.9933072",
-        "num_neighbors": 1
+        "avg_diffusion_prob": "0.616334",
+        "num_neighbors": 23
       },
       {
-        "user": "chubs66",
-        "user_id": 30,
-        "avg_diffusion_prob": "0.9933067",
-        "num_neighbors": 1
+        "user": "Universal_Anomaly",
+        "user_id": 29,
+        "avg_diffusion_prob": "0.626517",
+        "num_neighbors": 21
       },
       {
-        "user": "Michael_G_Bordin",
-        "user_id": 31,
-        "avg_diffusion_prob": "0.9933068",
-        "num_neighbors": 1
+        "user": "OmegaKitty1",
+        "user_id": 43,
+        "avg_diffusion_prob": "0.651663",
+        "num_neighbors": 25
       },
       {
-        "user": "WhiskeyDickIsSick",
-        "user_id": 34,
-        "avg_diffusion_prob": "0.9933068",
-        "num_neighbors": 1
+        "user": "DanoGuy",
+        "user_id": 44,
+        "avg_diffusion_prob": "0.656772",
+        "num_neighbors": 24
       },
       {
-        "user": "Old-Technician-3192",
-        "user_id": 35,
-        "avg_diffusion_prob": "0.9933014",
-        "num_neighbors": 1
-      },
-      {
-        "user": "Money_ConferenceCell",
-        "user_id": 36,
-        "avg_diffusion_prob": "0.99330497",
-        "num_neighbors": 2
-      },
-      {
-        "user": "SoFierceSofia",
-        "user_id": 38,
-        "avg_diffusion_prob": "0.99330705",
-        "num_neighbors": 1
-      },
-      {
-        "user": "TheBrain511",
-        "user_id": 39,
-        "avg_diffusion_prob": "0.9930308",
-        "num_neighbors": 2
+        "user": "BNsucks",
+        "user_id": 45,
+        "avg_diffusion_prob": "0.629770",
+        "num_neighbors": 20
       }
     ],
-    "low_diffusion_users": [],
+    "low_diffusion_users": [
+      {
+        "user": "themangastand",
+        "user_id": 6,
+        "avg_diffusion_prob": "0.609740",
+        "num_neighbors": 20
+      },
+      {
+        "user": "Few_Mistake4144",
+        "user_id": 9,
+        "avg_diffusion_prob": "0.580597",
+        "num_neighbors": 21
+      },
+      {
+        "user": "ToeKnail",
+        "user_id": 10,
+        "avg_diffusion_prob": "0.602325",
+        "num_neighbors": 20
+      },
+      {
+        "user": "Drakeberlin",
+        "user_id": 14,
+        "avg_diffusion_prob": "0.593202",
+        "num_neighbors": 19
+      },
+      {
+        "user": "Important_Language37",
+        "user_id": 21,
+        "avg_diffusion_prob": "0.601236",
+        "num_neighbors": 21
+      },
+      {
+        "user": "Loud-Cellist7129",
+        "user_id": 22,
+        "avg_diffusion_prob": "0.590192",
+        "num_neighbors": 24
+      },
+      {
+        "user": "doom32x",
+        "user_id": 24,
+        "avg_diffusion_prob": "0.601627",
+        "num_neighbors": 22
+      },
+      {
+        "user": "JONNy-G",
+        "user_id": 33,
+        "avg_diffusion_prob": "0.601005",
+        "num_neighbors": 21
+      },
+      {
+        "user": "postconsumerwat",
+        "user_id": 34,
+        "avg_diffusion_prob": "0.596186",
+        "num_neighbors": 22
+      },
+      {
+        "user": "LurkerInSpace",
+        "user_id": 37,
+        "avg_diffusion_prob": "0.577215",
+        "num_neighbors": 23
+      },
+      {
+        "user": "AussieJeffProbst",
+        "user_id": 39,
+        "avg_diffusion_prob": "0.607990",
+        "num_neighbors": 21
+      },
+      {
+        "user": "bozoaxl",
+        "user_id": 42,
+        "avg_diffusion_prob": "0.579321",
+        "num_neighbors": 22
+      },
+      {
+        "user": "AnonAmbientLight",
+        "user_id": 46,
+        "avg_diffusion_prob": "0.587727",
+        "num_neighbors": 30
+      }
+    ],
     "diffusion_by_network_position": {
-      "1": [
-        "0.9933072",
-        "0.9932996",
-        "0.99330705",
-        "0.99330187",
-        "0.99330693",
-        "0.9933067",
-        "0.9933072",
-        "0.9933066",
-        "0.99330646",
-        "0.9933072",
-        "0.9933067",
-        "0.9933068",
-        "0.9933068",
-        "0.9933014",
-        "0.99330705"
+      "0": [
+        "0.614348",
+        "0.609740",
+        "0.602325",
+        "0.593202",
+        "0.624674",
+        "0.622633",
+        "0.628813",
+        "0.629770"
       ],
-      "3": [
-        "0.99328995"
+      "1": [
+        "0.580597",
+        "0.617572",
+        "0.601236",
+        "0.616334",
+        "0.626517",
+        "0.601005",
+        "0.596186",
+        "0.577215",
+        "0.607990"
       ],
       "2": [
-        "0.9933058",
-        "0.99330586",
-        "0.99330497",
-        "0.9930308"
+        "0.620457",
+        "0.625213",
+        "0.590192",
+        "0.601627",
+        "0.579321",
+        "0.656772"
+      ],
+      "3": [
+        "0.651663",
+        "0.587727"
       ]
     },
     "temporal_patterns": {}

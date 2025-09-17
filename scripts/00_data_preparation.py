@@ -45,7 +45,7 @@ def load_reddit_data(config):
     """Load Reddit data from parquet files with sampling for speed."""
     print("Loading Reddit data (with sampling for speed)...")
     
-    max_samples = config.get('data_prep', {}).get('max_samples_per_file', 1000)
+    max_samples = 50000  # 直接设置为50000
     
     # Load submissions
     mini_dir = Path(config['paths']['mini_dir'])
@@ -82,9 +82,11 @@ def load_reddit_data(config):
     for file in comments_files[:2]:  # Only process first 2 files for speed
         try:
             df = pd.read_parquet(file)
+            print(f"Original file has {len(df)} comments, max_samples={max_samples}")
             # Sample data for speed
             if len(df) > max_samples:
                 df = df.sample(n=max_samples, random_state=config['random_state'])
+                print(f"Sampled down to {len(df)} comments")
             comments_dfs.append(df)
             print(f"Loaded {len(df)} comments from {file.name}")
         except Exception as e:

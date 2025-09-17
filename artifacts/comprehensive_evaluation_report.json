@@ -1,88 +1,88 @@
 {
   "evaluation_summary": {
-    "timestamp": "2025-09-16T23:49:27.580571",
+    "timestamp": "2025-09-17T22:43:30.042304",
     "components_evaluated": 4,
     "visualizations_created": true
   },
   "classification_performance": {
     "metrics": {
       "tgnn": {
-        "accuracy": 0.75,
-        "precision": 0.8,
-        "recall": 0.7272727272727273,
-        "f1": 0.7619047619047619,
-        "auc": 0.8787878787878788
+        "accuracy": 0.961002767086029,
+        "precision": 0.9428571428571428,
+        "recall": 0.9763313609467456,
+        "f1": 0.9593023255813954,
+        "auc": 0.9933042665836187
       }
     },
     "comparison": {}
   },
   "diffusion_prediction": {
     "metrics": {
-      "hit_at_1": 0.55,
+      "hit_at_1": 0.07692307692307693,
       "hit_at_5": 0.0,
       "hit_at_10": 0.0,
       "hit_at_20": 0.0,
-      "mrr": 0.8809523809523808,
-      "jaccard": 0.6166666666666666,
-      "num_scenarios": 20
+      "mrr": 1.0,
+      "jaccard": 0.0,
+      "num_scenarios": 13
     },
     "patterns": {
-      "high_diffusion_users": 20,
-      "low_diffusion_users": 0,
-      "network_effects": 3
+      "high_diffusion_users": 6,
+      "low_diffusion_users": 7,
+      "network_effects": 2
     }
   },
   "moderation_effectiveness": {
     "best_strategy": "content_removal",
-    "best_score": 9.2284718765555,
+    "best_score": 9.981273708042362,
     "strategy_analysis": {
       "content_removal": {
-        "hate_reduction": 0.10204081632653061,
-        "effectiveness_score": 9.2284718765555,
-        "nodes_removed": 10,
-        "remaining_samples": 98
+        "hate_reduction": 0.11100292112950338,
+        "effectiveness_score": 9.981273708042362,
+        "nodes_removed": 228,
+        "remaining_samples": 2054
       },
       "user_banning": {
         "hate_reduction": 0.0,
         "effectiveness_score": 0,
         "nodes_removed": 0,
-        "remaining_samples": 108
+        "remaining_samples": 2282
       },
       "subreddit_banning": {
         "hate_reduction": 0.0,
         "effectiveness_score": 0,
         "nodes_removed": 0,
-        "remaining_samples": 108
+        "remaining_samples": 2282
       },
       "combined_intervention": {
-        "hate_reduction": 0.038461538461538436,
-        "effectiveness_score": 3.455909943714819,
+        "hate_reduction": 0.046788990825688104,
+        "effectiveness_score": 4.178285585636294,
         "nodes_removed": 0,
-        "remaining_samples": 104
+        "remaining_samples": 2180
       }
     },
     "effectiveness_scores": {
-      "content_removal": 9.2284718765555,
+      "content_removal": 9.981273708042362,
       "user_banning": 0,
       "subreddit_banning": 0,
-      "combined_intervention": 3.455909943714819
+      "combined_intervention": 4.178285585636294
     }
   },
   "dataset_characteristics": {
     "subreddit_analysis": {
       "hate_subreddits_count": 2,
       "normal_subreddits_count": 2,
-      "avg_hate_ratio": 0.013270876146316016,
-      "avg_normal_ratio": 0.013270876146316016
+      "avg_hate_ratio": 0.020490599191789326,
+      "avg_normal_ratio": 0.020490599191789326
     },
     "dataset_stats": {
-      "total_samples": 108,
-      "hate_samples": 54,
+      "total_samples": 2282,
+      "hate_samples": 1141,
       "offensive_samples": 0,
-      "normal_samples": 54,
-      "unique_users": 97,
+      "normal_samples": 1141,
+      "unique_users": 1793,
       "unique_subreddits": 2,
-      "avg_text_length": 322.7962962962963
+      "avg_text_length": 398.7817703768624
     },
     "balance_analysis": {
       "hate_ratio": 0.5,
@@ -93,11 +93,10 @@
   "research_insights": {
     "classification_insights": [],
     "diffusion_insights": [
-      "High Hit@1 score (0.550) indicates strong predictive capability for immediate diffusion",
-      "MRR of 0.881 suggests good ranking quality for diffusion prediction"
+      "MRR of 1.000 suggests good ranking quality for diffusion prediction"
     ],
     "moderation_insights": [
-      "Most effective moderation strategy: content_removal (effectiveness score: 9.2)"
+      "Most effective moderation strategy: content_removal (effectiveness score: 10.0)"
     ],
     "dataset_insights": [
       "Dataset is well-balanced for hate speech classification"

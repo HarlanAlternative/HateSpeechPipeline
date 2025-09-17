@@ -2,45 +2,45 @@
   "top_hate_subreddits": [
     {
       "subreddit": "politics",
-      "total_posts": 2286,
-      "hate_posts": 34,
-      "offensive_posts": 218,
-      "normal_posts": 2034,
-      "hate_ratio": 0.014873140857392825,
-      "offensive_ratio": 0.09536307961504811,
-      "combined_ratio": 0.11023622047244094
+      "total_posts": 35666,
+      "hate_posts": 767,
+      "offensive_posts": 4733,
+      "normal_posts": 30166,
+      "hate_ratio": 0.021505074861212357,
+      "offensive_ratio": 0.13270341501710312,
+      "combined_ratio": 0.15420848987831548
     },
     {
       "subreddit": "worldnews",
-      "total_posts": 1714,
-      "hate_posts": 20,
-      "offensive_posts": 185,
-      "normal_posts": 1509,
-      "hate_ratio": 0.011668611435239206,
-      "offensive_ratio": 0.10793465577596266,
-      "combined_ratio": 0.11960326721120186
+      "total_posts": 19203,
+      "hate_posts": 374,
+      "offensive_posts": 2292,
+      "normal_posts": 16537,
+      "hate_ratio": 0.019476123522366297,
+      "offensive_ratio": 0.1193563505702234,
+      "combined_ratio": 0.1388324740925897
     }
   ],
   "top_normal_subreddits": [
     {
-      "subreddit": "politics",
-      "total_posts": 2286,
-      "hate_posts": 34,
-      "offensive_posts": 218,
-      "normal_posts": 2034,
-      "hate_ratio": 0.014873140857392825,
-      "offensive_ratio": 0.09536307961504811,
-      "combined_ratio": 0.11023622047244094
+      "subreddit": "worldnews",
+      "total_posts": 19203,
+      "hate_posts": 374,
+      "offensive_posts": 2292,
+      "normal_posts": 16537,
+      "hate_ratio": 0.019476123522366297,
+      "offensive_ratio": 0.1193563505702234,
+      "combined_ratio": 0.1388324740925897
     },
     {
-      "subreddit": "worldnews",
-      "total_posts": 1714,
-      "hate_posts": 20,
-      "offensive_posts": 185,
-      "normal_posts": 1509,
-      "hate_ratio": 0.011668611435239206,
-      "offensive_ratio": 0.10793465577596266,
-      "combined_ratio": 0.11960326721120186
+      "subreddit": "politics",
+      "total_posts": 35666,
+      "hate_posts": 767,
+      "offensive_posts": 4733,
+      "normal_posts": 30166,
+      "hate_ratio": 0.021505074861212357,
+      "offensive_ratio": 0.13270341501710312,
+      "combined_ratio": 0.15420848987831548
     }
   ]
 }

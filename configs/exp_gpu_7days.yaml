@@ -1,0 +1,107 @@
+paths:
+  root: .
+  raw_comments: "comments/RC_2024-12_comments.json"
+  raw_submissions: "submissions/RS_2024-12_submission.json"
+  mini_dir: "mini_dataset"
+  artifacts_dir: "artifacts"
+  figures_dir: "figures"
+
+filters:
+  subreddits: ["politics", "worldnews", "AskReddit", "news", "technology", "science", "gaming", "funny", "memes", "unpopularopinion"]
+  # 前7天数据窗口
+  start_utc: "2024-12-01T00:00:00Z"
+  end_utc:   "2024-12-07T23:59:59Z"
+
+slice:
+  chunksize: 2000000  # 增大chunk size
+  sub_shard_rows: 1000000  # 增大submission shard
+  com_shard_rows: 2000000  # 增大comment shard
+  max_submissions: null
+  max_comments: null
+  comment_sample_frac: 1.0  # 使用所有评论
+
+read:
+  max_submissions_files: 999999
+  max_comments_files: 999999
+
+corpus:
+  text_fields_submission: ["title", "selftext"]
+  text_field_comment: "body"
+  min_doc_len: 5  # 降低最小长度以包含更多数据
+  lowercase: true
+  strip_urls: true
+  strip_markdown: true
+  strip_code: true
+
+split:
+  strategy: "time"
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+baseline:
+  vectorizer: "tfidf"
+  max_features: 100000  # 增加特征数量
+  ngram_range: [1, 3]  # 增加n-gram范围
+  clf: "logreg"
+  C: 1.0
+  class_weight: "balanced"
+
+graph:
+  node_type: "user"
+  min_degree: 1  # 降低最小度数以包含更多节点
+  max_nodes: 100000  # 增加最大节点数
+
+data_prep:
+  max_samples_per_file: 50000  # 大幅增加每个文件的样本数
+  target_dataset_size: 5000    # 增加目标数据集大小
+
+plots:
+  dpi: 300
+  style: "seaborn-v0_8"
+
+# GPU优化的BERT配置
+bert:
+  model_name: "distilbert-base-uncased"  # 使用更快的DistilBERT
+  max_length: 256  # 减少序列长度
+  batch_size: 4  # 进一步减少batch size
+  device: "cuda"  # 使用GPU
+  num_workers: 2  # 减少并行数
+
+# GPU优化的TGNN配置
+tgnn:
+  model_type: "TGAT"
+  hidden_dim: 256  # 增加隐藏层维度
+  num_layers: 3  # 增加层数
+  dropout: 0.1
+  learning_rate: 0.001
+  num_epochs: 200  # 增加训练轮数
+  batch_size: 1024  # GPU可以处理更大batch
+  device: "cuda"
+  early_stopping_patience: 20
+
+# 扩散预测配置
+diffusion:
+  prediction_window: 24  # 24小时预测窗口
+  k_values: [1, 5, 10, 20]  # 更多k值
+  num_scenarios: 1000  # 增加场景数量
+
+# 内容审核配置
+moderation:
+  hate_threshold: 0.7
+  subreddit_hate_threshold: 0.3
+  ban_percentage: 0.1
+  subreddit_ban_percentage: 0.05
+  content_removal_percentage: 0.2
+  intervention_percentage: 0.15
+
+# 数据准备配置 - 针对大规模数据优化
+data_prep:
+  min_posts_per_subreddit: 10  # 降低要求以包含更多子版块
+  target_dataset_size: 50000  # 增加目标数据集大小
+  time_window_hours: 168  # 7天 = 168小时
+  max_samples_per_file: 5000  # 增加每文件样本数
+  use_gpu: true  # 启用GPU加速
+  parallel_workers: 8  # 并行处理
+
+random_state: 42

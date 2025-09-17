@@ -1,7 +1,7 @@
 {
   "embedding_model": "distilbert-base-uncased",
   "embedding_dim": 768,
-  "num_samples": 108,
-  "num_users": 97,
+  "num_samples": 2282,
+  "num_users": 1793,
   "has_embeddings": true
 }

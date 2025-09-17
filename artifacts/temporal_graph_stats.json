@@ -1,10 +1,10 @@
 {
-  "num_nodes": 205,
-  "num_edges": 248,
-  "num_users": 97,
-  "num_posts": 108,
+  "num_nodes": 4075,
+  "num_edges": 11596,
+  "num_users": 1793,
+  "num_posts": 2282,
   "feature_dim": 776,
   "edge_feature_dim": 3,
-  "time_span": 591488.0,
-  "avg_degree": 1.2097560975609756
+  "time_span": 593408.0,
+  "avg_degree": 2.845644171779141
 }

@@ -1,15 +1,15 @@
 {
   "best_strategy": "content_removal",
   "effectiveness_scores": {
-    "content_removal": 9.2284718765555,
+    "content_removal": 9.981273708042362,
     "user_banning": 0,
     "subreddit_banning": 0,
-    "combined_intervention": 3.455909943714819
+    "combined_intervention": 4.178285585636294
   },
   "hate_reduction_by_strategy": {
-    "content_removal": 0.10204081632653061,
+    "content_removal": 0.11100292112950338,
     "user_banning": 0.0,
     "subreddit_banning": 0.0,
-    "combined_intervention": 0.038461538461538436
+    "combined_intervention": 0.046788990825688104
   }
 }
